@@ -17,6 +17,9 @@
 @DeleteColor: #e74c3c;
 @OptionsColor: #3498db;
 
+@LabelReadOnlyColor: #4188E0;
+@LabelWriteOnlyColor: #74251d;
+
 /* @end Colours */
 
 
@@ -51,9 +54,15 @@ body {
   text-align: center;
 }
 
-.label-required {
+.label-primary {
   padding: 2px 5px;
   margin-left: 5px;
+}
+.label-readonly {
+  background-color: @LabelReadOnlyColor;
+}
+.label-writeonly {
+  background-color: @LabelWriteOnlyColor;
 }
 
 .btn:focus,
@@ -148,6 +157,12 @@ body {
 
     .fields {
       list-style-type: square;
+
+      .field {
+        &.required {
+          font-weight: bold;
+        }
+      }
     }
   }
 

@@ -67,7 +67,10 @@
             <p class="fields-desc">Fields:</p>
               <ul class="list fields">
               {% for field in endpoint.fields %}
-                <li class="field">{{ field.name }}: {{ field.type }} {% if field.required %}<span class="label label-primary label-required" title="Required">R</span>{% endif %}</li>
+                <li class="field{% if field.required %} required{% endif %}">{{ field.name }}: {{ field.type }}
+                 {% if field.read_only %}<span class="label label-primary label-readonly" title="Read Only">R/O</span>{% endif %}
+                 {% if field.write_only %}<span class="label label-primary label-writeonly" title="Write Only">W/O</span>{% endif %}
+                </li>
               {% endfor %}
               </ul>
             {% elif not endpoint.errors %}
