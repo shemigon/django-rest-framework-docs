@@ -3,7 +3,9 @@ source_filename: templates
 ---
 
 ### Create the template file
-To edit the template you will have to create a `.html` file to override the original one. Inside your `templates` directory create a directory named `rest_framework_docs` and inside this create the file `docs.html`. You can then extend/override the default template.
+To edit the template create a new template and add its name to [settings](settings#template).
+
+You can then extend/override the default template.
 
     {% extends "rest_framework_docs/base.html" %}
 

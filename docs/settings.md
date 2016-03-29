@@ -21,9 +21,12 @@ You can use hidden to prevent your docs from showing up in different environment
 
 Then set the value of the environment variable `HIDE_DRFDOCS` for each environment (ie. Use `.env` files)
 
+##### TEMPLATE
+Define a custom base template
+
 ### List of Settings
 
-| Setting | Type    | Options         | Default |
-|---------|---------|-----------------|---------|
-|HIDE_DOCS| Boolean | `True`, `False` | `False` |
-|         |         |                 |         |
+| Setting | Type    | Options               | Default                            |
+|---------|---------|-----------------------|------------------------------------|
+|HIDE_DOCS| Boolean | `True`, `False`       | `False`                            |
+|TEMPLATE | String  | a valid template name | `'rest\_framework\_docs/docs.html'`|

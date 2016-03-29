@@ -5,7 +5,9 @@ class DRFSettings(object):
 
     def __init__(self):
         self.drf_settings = {
-            "HIDE_DOCS": self.get_setting("HIDE_DOCS") or False
+            "HIDE_DOCS": self.get_setting("HIDE_DOCS", False),
+            "TEMPLATE": self.get_setting("template",
+                                         'rest_framework_docs/docs.html')
         }
 
     def __getitem__(self, item):
