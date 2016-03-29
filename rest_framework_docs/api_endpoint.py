@@ -39,7 +39,11 @@ class ApiEndpoint(object):
         return [force_str(m).upper() for m in self.callback.cls.http_method_names if hasattr(self.callback.cls, m)]
 
     def __get_docstring__(self):
-        return inspect.getdoc(self.callback)
+        doc = inspect.getdoc(self.callback)
+        if doc:
+            doc = re.sub(r'(?<!\n)\n', ' ', doc)
+            doc = re.sub(r'\n+', '\n', doc)
+        return doc
 
     def __get_permissions_class__(self):
         for perm_class in self.pattern.callback.cls.permission_classes:
