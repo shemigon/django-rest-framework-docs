@@ -8,12 +8,18 @@ class DRFSettings(object):
             "HIDE_DOCS": self.get_setting("HIDE_DOCS") or False
         }
 
-    def get_setting(self, name):
+    def __getitem__(self, item):
+        return self.settings[item]
+
+    def get_setting(self, name, default):
         try:
             return settings.REST_FRAMEWORK_DOCS[name]
-        except:
-            return None
+        except (KeyError, AttributeError):
+            return default
 
     @property
     def settings(self):
         return self.drf_settings
+
+
+drf_settings = DRFSettings()
